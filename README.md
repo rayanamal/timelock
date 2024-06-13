@@ -22,9 +22,8 @@ For more information on installing and uninstalling Nix, you can check <https://
 Clone the repo and run the installer script:
 ```bash
 git clone 'https://github.com/rayanamal/timelock'
-cd timelock
 # Inspect the installer script now if you want to
-./install.sh
+timelock/install.sh
 ```
 
 Note: It may take a very long time to build the first time you do it, without any visible progress. Be patient.
@@ -36,6 +35,8 @@ Run commands per the below to see their usage:
 `./etlp -h`
 
 `./dtlp -h`
+
+#### Important! The timing system is not perfectly accurate. Even though the decryption process is deterministic, the measurements taken from the system during the encryption to determine CPU performance may be affected by other programs running at the same time. Furthermore other programs running during the decryption may delay it too. In extreme cases, it may take up to 1.5 x set encryption time to decrypt the data.
 
 ### TODO for the next person who is willing to take the task:
 
