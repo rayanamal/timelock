@@ -14,18 +14,17 @@ This program doesn't use symmetric encryption, it just time-locks the data you g
 ## Installation
 
 You can use this program on every single machine at any point in the future, because it's built with Nix. First install Nix:
-```
+```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
 For more information on installing and uninstalling Nix, you can check <https://zero-to-nix.com/start/install>.
 
-Download and run the installer:
-```
-nix-shell --pure --packages cacert curl \
-  -I 'https://github.com/NixOS/nixpkgs/archive/057f9aecfb71c4437d2b27d3323df7f93c010b7e.tar.gz' \
-  --command "curl -sSLOf --proto '=https' 'https://github.com/aerbil313/timelock/raw/main/install-timelock.sh'" \
-    && chmod +x ./install-timelock.sh \
-    && ./install-timelock.sh
+Clone the repo and run the installer script:
+```bash
+git clone 'https://github.com/rayanamal/timelock'
+cd timelock
+# Inspect the installer script now if you want to
+./install.sh
 ```
 
 Note: It may take a very long time to build the first time you do it, without any visible progress. Be patient.
@@ -40,6 +39,7 @@ Run commands per the below to see their usage:
 
 ### TODO for the next person who is willing to take the task:
 
+* Rewrite it in Rust, easily installable with cargo.
 * Make a tutorial.
 * Store every X time the non-resolved puzzle in a cache file.
 * Combine two programs into one and rename it to "timelock".
@@ -50,7 +50,6 @@ Run commands per the below to see their usage:
 * Hour, min, second is asked to the user separately and can be provided separately as command option.
 * Option to delete the data automatically from places warned after encryption.
 * If possible, shorten the encrypted message.
-* Encrypted data formatted in a way that it's possible for someone with no knowledge of the algorihthm can write a program and decrypt it. Ck, a, t, n values are clear and human-readable, along with the link to the paper above. Still supporting copy-pasting to decryption prompt.
-* Don't use key as message, use a symmetric encryption algorithm to encrypt the data with the randomly generated key, time-lock the key, and output encrypted data and time-locked key, like the original algorithm. 
-* Inform me on your improved version (I need especially the feature above.).
-
+* Encrypted data formatted in a way that it's possible for someone with no knowledge of the algorithm can write a program and decrypt it. Ck, a, t, n values are clear and human-readable, along with the link to the paper above. Still supporting copy-pasting to decryption prompt.
+* Don't use key as message, use a symmetric encryption algorithm to encrypt the data with the randomly generated key, time-lock the key, and output encrypted data and time-locked key, like the original algorithm.
+* Inform me on your improved version (Especially about the feature above.).
