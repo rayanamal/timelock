@@ -22,9 +22,8 @@ For more information on installing and uninstalling Nix, you can check <https://
 Clone the repo and run the installer script:
 ```bash
 git clone 'https://github.com/rayanamal/timelock'
-cd timelock
 # Inspect the installer script now if you want to
-./install.sh
+timelock/install.sh
 ```
 
 Note: It may take a very long time to build the first time you do it, without any visible progress. Be patient.
